@@ -1,0 +1,44 @@
+diff a/Assets/Scripts/PauseMenu.cs b/Assets/Scripts/PauseMenu.cs	(rejected hunks)
+@@ -9,31 +9,25 @@
+ 
+     void Update()
+     {
+-       
++        if (isPaused)
++        {
++            pauseMenuCanvas.SetActive(true);
++            Time.timeScale = 0.0f;
++        }
++        else
++        {
++            pauseMenuCanvas.SetActive(false);
++            Time.timeScale = 1.0f;
++        }
+ 
+         if (Input.GetKeyDown(KeyCode.P))
+-        {
+             isPaused = !isPaused;
+-            if (isPaused)
+-            {
+-                pauseMenuCanvas.SetActive(true);
+-                Time.timeScale = 0.0f;
+-            }
+-            else
+-            {
+-                pauseMenuCanvas.SetActive(false);
+-                Time.timeScale = 1.0f;
+-            }
+-            
+-        }
+-            
++
+     }
+ 
+     public void Resume()
+     {
+         isPaused = false;
+-        pauseMenuCanvas.SetActive(false);
+-        Time.timeScale = 1.0f;
+     }
+ 
+     public void QuitToMainMenu()

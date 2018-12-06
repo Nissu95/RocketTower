@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac9c97a74014c8449846e43f39b4b44, type: 3}
+  m_Name: Player2 Keyboard
+  m_EditorClassIdentifier: 
+  VerticalAxis:
+    Positive: 119
+    Negative: 115
+    SmoothValue: 0
+  HorizontalAxis:
+    Positive: 100
+    Negative: 97
+    SmoothValue: 0
+  Jump:
+    Key: 32
+  Fire1:
+    Key: 118
+  Start:
+    Key: 13

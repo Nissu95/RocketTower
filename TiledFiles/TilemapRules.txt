@@ -1,0 +1,4 @@
+Cada nivel debe poseer un tile marcado como "_start", este siempre sera el punto de inicio del nivel y no puede cambiar.
+A partir de esto, cada tileset debe ser marcado como "_00" hasta el "_09".
+El tamaño de cada tile es de 25x20 ya que de esta manera entra en la camara y deja un poco de espacio para que al instanciar
+el tile no aparezca de la nada a vista del jugador.
