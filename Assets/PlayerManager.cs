@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour {
         {
             if(winner =="Noone")
                 winner = players[0].name;
-            Debug.Log("Last player");
+            //Debug.Log("Last player");
             if (singleton!=null)
                 singleton.OnlyOnePlayerRemains.Invoke();
         }

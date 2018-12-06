@@ -11,7 +11,7 @@ public class LevelSpawner : MonoBehaviour {
     {
         if (other.gameObject.tag == "LevelSignal")
         {
-            Debug.Log("ENTRE");
+            //Debug.Log("ENTRE");
             elegido = Random.Range(0, prefab.Length);
             while (elegido == previo)
             {

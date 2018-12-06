@@ -65,7 +65,7 @@ public class CollisionDamageEnemy : MonoBehaviour {
                 case "Player":
                     PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
                     Debug.Log("Hurt Player" + actorPlayer.input.facingDirection);
-                    playerHealth.Hurt(0, new Vector2(actorPlayer.input.facingDirection*15 * DirectionalPush.x, input.AxisY() * DirectionalPush.y));
+                    playerHealth.Hurt(0, new Vector2(actorPlayer.input.facingDirection * 15 * DirectionalPush.x, input.AxisY() * DirectionalPush.y));
                     jet.SmallRefill();
                    
                     break;
@@ -80,5 +80,4 @@ public class CollisionDamageEnemy : MonoBehaviour {
             }
         }       
     }
-
 }
