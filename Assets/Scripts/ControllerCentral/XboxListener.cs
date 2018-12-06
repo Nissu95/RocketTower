@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class XboxListener : InputListener
 {
@@ -36,6 +37,7 @@ public class XboxListener : InputListener
 
     public override bool JumpButtonPress()
     {
+        //Debug.Log((PlayerIndex)config.JoystickInput - 1 + ": " + config.Jump.Press);
         return config.Jump.Press;
     }
 
@@ -61,6 +63,13 @@ public class XboxListener : InputListener
     public override bool StartButtonHold()
     {
         return config.Start.Hold;
+    }
+
+    public override void Vibrate(float leftMotor, float rightMotor)
+    {
+        //Debug.Log((PlayerIndex)config.JoystickInput - 1);
+        GamePad.SetVibration((PlayerIndex)config.JoystickInput - 1, leftMotor, rightMotor);
+        //GamePad.SetVibration(PlayerIndex.Two, leftMotor, rightMotor);
     }
 
 }

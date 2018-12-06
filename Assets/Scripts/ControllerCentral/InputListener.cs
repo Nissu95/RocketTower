@@ -14,5 +14,6 @@ public abstract class InputListener : MonoBehaviour {
     abstract public float SmoothAxisX();
     abstract public float AxisY();
     abstract public float SmoothAxisY();
+    abstract public void Vibrate(float leftMotor, float rightMotor);    //Valores de los motores entre 1 y 0
     //abstract public bool Start1ButtonPress();
 }

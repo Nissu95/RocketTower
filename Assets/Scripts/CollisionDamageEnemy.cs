@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionDamageEnemy : MonoBehaviour {
-    int dir = 1;
+
     [SerializeField] private float damage;
-    private InputListener input;
-    private ActorPlayer actorPlayer;
-    public float cooldown = 0.2f;
-    float cooldownCountdown;
+    [SerializeField] float VibrationTime = 1.0f;
+
     public Vector2 DirectionalPush = new Vector2(15,10);
     public float damageDuration = 0.1f;
     public float damageCountdown;
     public SpriteRenderer r;
     public Animator anim;
+    public float cooldown = 0.2f;
+
+    private InputListener input;
+    private ActorPlayer actorPlayer;
     private Jetpack jet;
+
+    float cooldownCountdown;
+    float vibrationCountdown;
+    int dir = 1;
+    bool isVibrating = false;
 
     void Start()
     {
@@ -25,9 +32,22 @@ public class CollisionDamageEnemy : MonoBehaviour {
         cooldownCountdown = cooldown;
         damageCountdown = 0;
         jet = GetComponentInParent<Jetpack>();
+        vibrationCountdown = VibrationTime;
     }
-    private void Update()
+
+   /* private void Update()
     {
+        if (vibrationCountdown > 0 && isVibrating)
+        {
+            input.Vibrate(0.5f, 0.5f);
+            vibrationCountdown -= Time.deltaTime;
+        }
+        else
+        {
+            input.Vibrate(0.0f, 0.0f);
+            isVibrating = false;
+            vibrationCountdown = VibrationTime;
+        }
 
         if (cooldownCountdown > 0)
         {
@@ -37,10 +57,23 @@ public class CollisionDamageEnemy : MonoBehaviour {
         else
         {
             //r.color = new Color(1, 1, 1, 0);
-        }       
-    }
+        }
+    }*/
+
     private void FixedUpdate()
     {
+        if (vibrationCountdown > 0 && isVibrating)
+        {
+            input.Vibrate(0.5f, 0.5f);
+            vibrationCountdown -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            input.Vibrate(0.0f, 0.0f);
+            isVibrating = false;
+            vibrationCountdown = VibrationTime;
+        }
+
         if (cooldownCountdown <= 0)
         {
             if (input.Fire1ButtonPress())
@@ -64,16 +97,19 @@ public class CollisionDamageEnemy : MonoBehaviour {
             {
                 case "Player":
                     PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-                    Debug.Log("Hurt Player" + actorPlayer.input.facingDirection);
+                    //InputListener otherInput = other.GetComponent<InputListener>();
+                    //Debug.Log("Hurt Player" + actorPlayer.input.facingDirection);
                     playerHealth.Hurt(0, new Vector2(actorPlayer.input.facingDirection * 15 * DirectionalPush.x, input.AxisY() * DirectionalPush.y));
+                    //input.Vibrate(0.5f, 0.5f);
+                    //otherInput.Vibrate(0.5f, 0.5f);
+                    isVibrating = true;
                     jet.SmallRefill();
-                   
                     break;
                 case "Enemy":
                     EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();                    
                     if (enemyHealth != null)
                     {
-                        Debug.Log("Hurt Enemy" + actorPlayer.input.facingDirection);
+                        //Debug.Log("Hurt Enemy" + actorPlayer.input.facingDirection);
                         enemyHealth.Hurt(damage, actorPlayer.input.facingDirection);
                     }
                     break;

@@ -59,6 +59,11 @@ public class AirControllerListener : InputListener {
         throw new NotImplementedException();
     }
 
+    public override void Vibrate(float leftMotor, float rightMotor)
+    {
+        throw new NotImplementedException();
+    }
+
     //public AirControllerEmiter emiter;
     void FixedUpdate()
     {

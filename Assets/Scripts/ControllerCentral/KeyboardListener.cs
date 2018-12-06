@@ -60,4 +60,10 @@ public class KeyboardListener : InputListener
     {
         return KeyboardConfig.Start.Hold;
     }
+
+    public override void Vibrate(float leftMotor, float rightMotor)
+    {
+        //throw new NotImplementedException();
+    }
+
 }
