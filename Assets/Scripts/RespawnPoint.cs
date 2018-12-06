@@ -30,6 +30,7 @@ public class RespawnPoint : MonoBehaviour {
         ContainedPlayersInput[index].gameObject.transform.position = transform.position;
         ContainedPlayersInput[index].gameObject.SetActive(true);
         ContainedPlayersInput[index].gameObject.GetComponentInChildren<SpawnArrow>().GetSpawnArrow().SetActive(true);
+        ContainedPlayersInput[index].gameObject.GetComponent<Jetpack>().FillAll();
 
         ContainedPlayersInput.RemoveAt(index);
 

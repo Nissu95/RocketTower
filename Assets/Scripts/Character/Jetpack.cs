@@ -50,4 +50,10 @@ public class Jetpack : MonoBehaviour {
         }
         return false;
     }
+
+    public void FillAll()
+    {
+        CurrentContents = MaxValue;
+    }
+
 }
