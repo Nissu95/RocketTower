@@ -5,14 +5,14 @@ using UnityEngine;
 public class InputManager : MonoBehaviour {
     public InputListener[] AllInputs;
     public static InputManager Singleton;
-	// Use this for initialization
+
 	void Awake () {
+        DontDestroyOnLoad(this);
         AllInputs = GetComponents<InputListener>();
-        Singleton = this;
+
+        if (Singleton != null)
+            Destroy(gameObject);
+        else
+            Singleton = this;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

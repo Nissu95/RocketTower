@@ -9,6 +9,7 @@ public class ButtonManager : MonoBehaviour {
     [SerializeField] private GameObject quitCanvas;
     [SerializeField] private GameObject selectLvlCanvas;
     [SerializeField] private GameObject principalMenuCanvas;
+    [SerializeField] GameObject joinPlayers;
     public GameObject[] buttons;
 
     void Start()
@@ -18,27 +19,29 @@ public class ButtonManager : MonoBehaviour {
 
     public void PressPlayButton(string level)
     {
-        EventSystem.current.SetSelectedGameObject(buttons[3]);
+        joinPlayers.SetActive(true);
         selectLvlCanvas.SetActive(true);
+        //EventSystem.current.SetSelectedGameObject(buttons[3]);
         principalMenuCanvas.SetActive(false);
     }
 
     public void PressSelectLevel()
     {
-        SceneManager.LoadScene(SceneManagement.instance.levels[SceneManagement.instance.currentLvl]);
+        if (GameManager.Singleton.GetCantPlayers() > 0)
+            SceneManager.LoadScene(SceneManagement.instance.levels[SceneManagement.instance.currentLvl]);
     }
 
     public void PressExit()
     {
-        EventSystem.current.SetSelectedGameObject(buttons[2]);
         quitCanvas.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(buttons[2]);
         principalMenuCanvas.SetActive(false);
     }
 
     public void PressSettings()
     {
-        EventSystem.current.SetSelectedGameObject(buttons[1]);
         panel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(buttons[1]);
     }
 
     public void PressYes()
@@ -55,9 +58,9 @@ public class ButtonManager : MonoBehaviour {
 
     public void PressReturn()
     {
-        EventSystem.current.SetSelectedGameObject(buttons[0]);
         selectLvlCanvas.SetActive(false);
         principalMenuCanvas.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(buttons[0]);
     }
 
     public void PressApply()

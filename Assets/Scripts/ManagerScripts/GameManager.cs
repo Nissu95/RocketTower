@@ -4,13 +4,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     [SerializeField] private string winScene;
-    [SerializeField] private int cantPlayers;
+
     public static GameManager Singleton;
     public bool Activated = true;
+
+    int cantPlayers = 0;
+
     void Awake()
     {
-        Singleton = this;
-        cantPlayers -= 1;
+        DontDestroyOnLoad(this);
+
+        if (Singleton != null)
+            Destroy(gameObject);
+        else
+            Singleton = this;
+        //cantPlayers -= 1;
     }
     public void Win()
     {
@@ -26,4 +34,20 @@ public class GameManager : MonoBehaviour {
     {
         Activated = false;
     }
+
+    public int GetCantPlayers()
+    {
+        return cantPlayers;
+    }
+
+    public void SetCantPlayers(int _cantPlayers)
+    {
+        cantPlayers = _cantPlayers;
+    }
+
+    public void AddCantPlayers(int _cantPlayers)
+    {
+        cantPlayers += _cantPlayers;
+    }
+
 }

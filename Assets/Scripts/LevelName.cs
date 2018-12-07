@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelName : MonoBehaviour {
     int currentname; 
-    Text name;
+    new Text name;
     [SerializeField] private string[] stageName;
 
     void Awake()

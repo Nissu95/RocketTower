@@ -59,7 +59,7 @@ public class SettingsManager : MonoBehaviour {
 
     public void LoadSettings()
     {
-        gameSettings = JsonUtility.FromJson<GameSettings>(File.ReadAllText(Application.persistentDataPath + "/gamesettings.json"));
+        //gameSettings = JsonUtility.FromJson<GameSettings>(File.ReadAllText(Application.persistentDataPath + "/gamesettings.json"));
         resolutionDropdown.value = gameSettings.resolution;
         fullscreenToggle.isOn = gameSettings.fullscreen;
     }

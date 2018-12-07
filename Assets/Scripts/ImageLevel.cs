@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ImageLevel : MonoBehaviour {
     int currentImage;
-    Image name;
+    new Image name;
     [SerializeField] private Sprite[] stageName;
 
     void Awake()
