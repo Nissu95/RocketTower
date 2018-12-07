@@ -6,14 +6,14 @@ public class mirrorPositionOnInput : MonoBehaviour {
     Vector2 pos;
     Vector2 scale;
     ActorPlayer ap;
-    SpriteRenderer r;
+    //SpriteRenderer r;
 
 	// Use this for initialization
 	void Awake () {
         ap = GetComponentInParent<ActorPlayer>();
         pos = transform.localPosition;
         scale = transform.localScale;
-        r = GetComponent<SpriteRenderer>();
+        //r = GetComponent<SpriteRenderer>();
         
     }
 	

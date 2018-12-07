@@ -167,21 +167,22 @@ GameObject:
   - component: {fileID: 114008957503899972}
   - component: {fileID: 114222278477325368}
   - component: {fileID: 114121652505235052}
+  - component: {fileID: 114219395082711898}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4080458303685028
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927252421862612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.106789, y: 1.3687387, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.930044, y: -3.2158098, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4631848236484494}
@@ -442,6 +443,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
+--- !u!114 &114219395082711898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1927252421862612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9c9b2de13e8eb4facc15f2e3912e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VibrationTime: 1
 --- !u!114 &114222278477325368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,7 +516,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  VibrationTime: 1
   DirectionalPush: {x: 15, y: 10}
   damageDuration: 0.1
   damageCountdown: 0

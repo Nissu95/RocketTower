@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 114668853887431116}
   - component: {fileID: 114202436595927068}
   - component: {fileID: 114799993618686180}
+  - component: {fileID: 114402919566724610}
   m_Layer: 8
   m_Name: Player 2
   m_TagString: Player
@@ -520,7 +521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  VibrationTime: 1
   DirectionalPush: {x: 15, y: 10}
   damageDuration: 0.1
   damageCountdown: 0
@@ -553,6 +553,18 @@ MonoBehaviour:
   sprite: {fileID: 212512306709905994}
   jetpackDust: {fileID: 198955095900227310}
   jetpackDustInitPos: {x: 0.302, y: -0.463, z: 0}
+--- !u!114 &114402919566724610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1927252421862612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9c9b2de13e8eb4facc15f2e3912e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VibrationTime: 1
 --- !u!114 &114549167845047396
 MonoBehaviour:
   m_ObjectHideFlags: 1
