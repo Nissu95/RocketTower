@@ -9,7 +9,7 @@ public class JoinPlayers : MonoBehaviour {
     [SerializeField] GameObject playerThree;
     [SerializeField] GameObject playerFour;
 
-    private void Start()
+    private void Awake()
     {
         switch (GameManager.Singleton.GetCantPlayers())
         {

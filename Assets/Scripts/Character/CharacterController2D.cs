@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
 public delegate void PhysicsStepDelegate(CharacterController2D cc);
 
-[RequireComponent(typeof(CircleCollider2D),typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D), typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour, IPusheable
 {
     public bool ignoreFloor = false;
@@ -16,7 +17,7 @@ public class CharacterController2D : MonoBehaviour, IPusheable
     public bool Col_wallRight;
     public bool Col_fallRight;
     public bool Col_ceiling;
-    
+
     public float gravityMultiplier = 1f;
     public float gravity = 9.8f;
     public float GroundCheckPoint;
@@ -32,45 +33,37 @@ public class CharacterController2D : MonoBehaviour, IPusheable
     {
         externalMovement += new Vector2(X, Y);
     }
+
     public Vector2 GetExternalMovement()
     {
         return externalMovement;
     }
+
     public void Push(float X, float Y)
     {
         velocity += new Vector2(X, Y);
     }
+
     public void SetSpeed(float X, float Y)
     {
         velocity = new Vector2(X, Y);
     }
+
     void ClampSpeed()
     {
         velocity.x = Mathf.Clamp(velocity.x, -maxSpeed, maxSpeed);
         velocity.y = Mathf.Clamp(velocity.y, -maxSpeed, maxSpeed);
 
         if (Col_wallRight)
-        {
             velocity.x = Mathf.Clamp(velocity.x, -100f, 0f);
-        }
         if (Col_wallLeft)
-        {
             velocity.x = Mathf.Clamp(velocity.x, 0f, 100f);
-        }
         if (Col_isGrounded)
-        {
             velocity.y = Mathf.Clamp(velocity.y, -gravity * Time.fixedDeltaTime, 100f);
-        }
         else
-        {
             if (Col_ceiling)
-            {
                 velocity.y = Mathf.Clamp(velocity.y, -100f, 0f);
-            }
-        }
     }
-
-  
 
     private Rigidbody2D rb;
     public Vector2 velocity;
@@ -81,7 +74,7 @@ public class CharacterController2D : MonoBehaviour, IPusheable
     public LayerMask OneSidedGroundLayers;
     private Collider2D[] TouchingGround;
     private ContactFilter2D cf2D;
-    private ContactFilter2D cf2DWalls;    
+    private ContactFilter2D cf2DWalls;
     private RaycastHit2D[] TouchingGround_OneSided;
     private ContactFilter2D cf2D_OneSided;
 
@@ -89,13 +82,13 @@ public class CharacterController2D : MonoBehaviour, IPusheable
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
         TouchingGround = new Collider2D[1];
         cf2D = new ContactFilter2D();
         cf2D.SetLayerMask(GroundLayers);
-       
+
         cf2DWalls = new ContactFilter2D();
-        cf2DWalls.SetLayerMask(WallLayers+GroundLayers);
+        cf2DWalls.SetLayerMask(WallLayers + GroundLayers);
 
         cf2D_OneSided = new ContactFilter2D();
         cf2D_OneSided.SetLayerMask(OneSidedGroundLayers);
@@ -109,27 +102,28 @@ public class CharacterController2D : MonoBehaviour, IPusheable
            GroundLayers + OneSidedGroundLayers,
            1);
     }
-    
+
     public Vector2 Movement;
     public bool Col_GroundIsOneSided = false;
     // Update is called once per frame
-    void FixedUpdate () {
+    void FixedUpdate()
+    {
         Ground.TestCollision(Time.fixedDeltaTime);
-        
+
         Col_isGrounded = Physics2D.OverlapCircle(transform.position + Vector3.up * GroundCheckPoint, GroundCheckRadius, cf2D, TouchingGround) > 0;
         Col_ceiling = Physics2D.OverlapCircle(transform.position + Vector3.up * CeilingCheckPoint, 0.06f, GroundLayers);
-        Col_wallLeft = Physics2D.OverlapCircle(transform.position + Vector3.up * CeilingCheckPoint/2 -  Vector3.right * SideCheckPoint, 0.06f, WallLayers);
+        Col_wallLeft = Physics2D.OverlapCircle(transform.position + Vector3.up * CeilingCheckPoint / 2 - Vector3.right * SideCheckPoint, 0.06f, WallLayers);
         Col_wallRight = Physics2D.OverlapCircle(transform.position + Vector3.up * CeilingCheckPoint / 2 + Vector3.right * SideCheckPoint, 0.06f, WallLayers);
         Col_fallLeft = !Physics2D.OverlapCircle(transform.position - Vector3.right * SideCheckPoint + Vector3.down * fallCheckPoint, 0.06f, WallLayers);
         Col_fallRight = !Physics2D.OverlapCircle(transform.position + Vector3.right * SideCheckPoint + Vector3.down * fallCheckPoint, 0.06f, WallLayers);
         Movement = Vector2.zero;
 
         Vector3 CurrentOneSidedGroundPoint = transform.position + Vector3.down * OneSidedGroundPoint;
-        if(!Col_isGrounded && velocity.y < 0 && 0 < Physics2D.Raycast(LastOneSidedGroundPoint, (CurrentOneSidedGroundPoint) - LastOneSidedGroundPoint, cf2D_OneSided, TouchingGround_OneSided, ((CurrentOneSidedGroundPoint) - LastOneSidedGroundPoint).magnitude))
+        if (!Col_isGrounded && velocity.y < 0 && 0 < Physics2D.Raycast(LastOneSidedGroundPoint, (CurrentOneSidedGroundPoint) - LastOneSidedGroundPoint, cf2D_OneSided, TouchingGround_OneSided, ((CurrentOneSidedGroundPoint) - LastOneSidedGroundPoint).magnitude))
         {
             Col_isGrounded = true;
             Col_GroundIsOneSided = true;
-            AddMovement(0,gravity*Time.fixedDeltaTime*1f);
+            AddMovement(0, gravity * Time.fixedDeltaTime * 1f);
         }
         else
         {
@@ -146,13 +140,15 @@ public class CharacterController2D : MonoBehaviour, IPusheable
 
         ClampSpeed();
         Movement += externalMovement * Time.fixedDeltaTime;
-        externalMovement = Vector2.zero;        
+        externalMovement = Vector2.zero;
         Movement += velocity * Time.fixedDeltaTime;
         //Debug.Log("Step" + Movement);
         rb.MovePosition(rb.position + Movement);
     }
+
     public float GroundFriction = 0f;
     public bool prevGrounded = false;
+
     private void DefaultPhysicsStep()
     {
         if (ignoreFloor)
@@ -173,7 +169,7 @@ public class CharacterController2D : MonoBehaviour, IPusheable
                 {
                     leftGround = true;
                 }
-            }           
+            }
         }
         if (Col_isGrounded)
         {
@@ -193,11 +189,12 @@ public class CharacterController2D : MonoBehaviour, IPusheable
             }
         }
         else
-        {           
+        {
             velocity += Vector2.down * gravity * gravityMultiplier * Time.fixedDeltaTime;
         }
         prevGrounded = Col_isGrounded;
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position + Vector3.up * GroundCheckPoint, GroundCheckRadius);
@@ -272,5 +269,5 @@ public class CollisionPoint2D
     {
         Gizmos.DrawWireSphere((Vector2)parent.position + position, radius);
     }
-    
+
 }

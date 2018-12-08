@@ -237,7 +237,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00058
+      value: -8.000977
       objectReference: {fileID: 0}
     - target: {fileID: 224602771142894488, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -254,9 +254,24 @@ Prefab:
       propertyPath: jugadorAsignado
       value: Player 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1057177686}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 43977053}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14649bf8dac5384c8d0188efcca8de5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &43977053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1885533673287626, guid: d14649bf8dac5384c8d0188efcca8de5,
+    type: 2}
+  m_PrefabInternal: {fileID: 43977052}
 --- !u!114 &132537415 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114933067816529906, guid: 170bad92ab19e164fa7d656fb3674d18,
@@ -489,6 +504,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 871849709}
     m_Modifications:
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: players.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 224925626041508074, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -527,7 +547,7 @@ Prefab:
     - target: {fileID: 224925626041508074, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224925626041508074, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -607,7 +627,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00058
+      value: -8.000977
       objectReference: {fileID: 0}
     - target: {fileID: 224607489721566998, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -619,9 +639,33 @@ Prefab:
       propertyPath: jugadorAsignado
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 1697799534}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1697799534}
+    - target: {fileID: 1885533673287626, guid: d14649bf8dac5384c8d0188efcca8de5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 439963258}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14649bf8dac5384c8d0188efcca8de5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &439963258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1885533673287626, guid: d14649bf8dac5384c8d0188efcca8de5,
+    type: 2}
+  m_PrefabInternal: {fileID: 439963257}
 --- !u!1 &465374265
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,7 +814,6 @@ GameObject:
   m_Component:
   - component: {fileID: 657470791}
   - component: {fileID: 657470790}
-  - component: {fileID: 657470789}
   - component: {fileID: 657470788}
   - component: {fileID: 657470787}
   - component: {fileID: 657470784}
@@ -945,13 +988,6 @@ AudioListener:
   m_GameObject: {fileID: 657470782}
   m_Enabled: 1
 --- !u!124 &657470788
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 657470782}
-  m_Enabled: 1
---- !u!92 &657470789
 Behaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1455,9 +1491,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 361682615}
   - {fileID: 923783962}
   - {fileID: 1847720169}
+  - {fileID: 361682615}
   - {fileID: 1835600626}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2371,7 +2407,7 @@ Prefab:
     - target: {fileID: 224925626041508074, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224925626041508074, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -2460,16 +2496,31 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00058
+      value: -8.000977
       objectReference: {fileID: 0}
     - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: jugadorAsignado
       value: Player 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1856569052}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 1603084815}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14649bf8dac5384c8d0188efcca8de5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1603084815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1885533673287626, guid: d14649bf8dac5384c8d0188efcca8de5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1603084814}
 --- !u!1 &1660184499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2939,7 +2990,7 @@ Prefab:
     - target: {fileID: 224925626041508074, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224925626041508074, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -3023,7 +3074,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00058
+      value: -8.000977
       objectReference: {fileID: 0}
     - target: {fileID: 224602771142894488, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -3035,9 +3086,24 @@ Prefab:
       propertyPath: jugadorAsignado
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 729885862}
+    - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
+        type: 2}
+      propertyPath: playerUI
+      value: 
+      objectReference: {fileID: 1924747462}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14649bf8dac5384c8d0188efcca8de5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1924747462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1885533673287626, guid: d14649bf8dac5384c8d0188efcca8de5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924747461}
 --- !u!1 &1926935697
 GameObject:
   m_ObjectHideFlags: 0

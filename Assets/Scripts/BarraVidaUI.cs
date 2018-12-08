@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class BarraVidaUI : MonoBehaviour {
+public class BarraVidaUI : MonoBehaviour
+{
     [SerializeField] private string jugadorAsignado;
+
     private GameObject jugador;
     private PlayerHealth vidaJugador;
     private Image barraVida;
@@ -12,6 +14,7 @@ public class BarraVidaUI : MonoBehaviour {
     private void Awake()
     {
         jugador = GameObject.Find(jugadorAsignado);
+
         if (jugador != null)
         {
             barraVida = GetComponent<Image>();

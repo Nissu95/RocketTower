@@ -18,9 +18,13 @@ public class mirrorPositionOnInput : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate ()
+    {
         //r.flipX = ap.input.facingDirection<0;
-        transform.localScale = new Vector2( scale.x * ap.input.facingDirection, scale.y);
-        transform.position = (Vector2) transform.parent.position + new Vector2(pos.x * ap.input.facingDirection, pos.y);
+        if (ap.input != null)
+        {
+            transform.localScale = new Vector2(scale.x * ap.input.facingDirection, scale.y);
+            transform.position = (Vector2)transform.parent.position + new Vector2(pos.x * ap.input.facingDirection, pos.y);
+        }
     }
 }

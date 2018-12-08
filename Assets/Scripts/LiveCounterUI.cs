@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class LiveCounterUI : MonoBehaviour {
-    [SerializeField] private string jugadorAsignado;
+public class LiveCounterUI : MonoBehaviour
+{
     [SerializeField] private Sprite[] cantVidas;
-    private GameObject jugador;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject playerUI;
+
     private PlayerHealth vidaJugador;
     private Image contadorVidas;
     private int currentLives;
 
-    private void Awake()
+    private void Start()
     {
-        jugador = GameObject.Find(jugadorAsignado);
-        if (jugador != null)
+        if (player.activeInHierarchy)
         {
             contadorVidas = GetComponent<Image>();
-            vidaJugador = jugador.gameObject.GetComponent<PlayerHealth>();
+            vidaJugador = player.gameObject.GetComponent<PlayerHealth>();
         }
-        else if (jugador == null)
+        else if (!player.activeInHierarchy)
         {
+            playerUI.SetActive(false);
             Destroy(gameObject);
         }
     }
 
-    public void Update(){
+    public void Update()
+    {
         currentLives = vidaJugador.CurrentLives;
         contadorVidas.sprite = cantVidas[currentLives];
     }

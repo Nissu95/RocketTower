@@ -17,6 +17,7 @@ public class CollisionDamageEnemy : MonoBehaviour
     private InputListener input;
     private ActorPlayer actorPlayer;
     private Jetpack jet;
+    public CharacterController2D CC;
 
     float cooldownCountdown;
     int dir = 1;
@@ -30,6 +31,7 @@ public class CollisionDamageEnemy : MonoBehaviour
         cooldownCountdown = cooldown;
         damageCountdown = 0;
         jet = GetComponentInParent<Jetpack>();
+        //CC.GetComponentInParent<CharacterController2D>();
     }
 
     /* private void Update()
@@ -59,20 +61,29 @@ public class CollisionDamageEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (cooldownCountdown <= 0)
+        if (!actorPlayer.isStunned)
         {
-            if (input.Fire1ButtonPress())
+            if (cooldownCountdown <= 0)
             {
-                anim.SetTrigger("Attack");
-                cooldownCountdown = cooldown;
-                damageCountdown = damageDuration;
+                if (input.Fire1ButtonPress())
+                {
+                    anim.SetTrigger("Attack");
+                    cooldownCountdown = cooldown;
+                    damageCountdown = damageDuration;
+                }
+            }
+            else
+            {
+                cooldownCountdown -= Time.fixedDeltaTime;
+                damageCountdown -= Time.fixedDeltaTime;
             }
         }
-        else
+       else
         {
             cooldownCountdown -= Time.fixedDeltaTime;
             damageCountdown -= Time.fixedDeltaTime;
         }
+        
     }
     void OnTriggerStay2D(Collider2D other)
     {
@@ -82,10 +93,12 @@ public class CollisionDamageEnemy : MonoBehaviour
             {
                 case "Player":
                     PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+                    ActorPlayer otherActorPlayer = other.GetComponent<ActorPlayer>();
                     VibrateJoystock otherJoystick = other.GetComponent<VibrateJoystock>();
                     //Debug.Log("Hurt Player" + actorPlayer.input.facingDirection);
                     playerHealth.Hurt(0, new Vector2(actorPlayer.input.facingDirection * 15 * DirectionalPush.x, input.AxisY() * DirectionalPush.y));
                     otherJoystick.SetVibrating(true);
+                    otherActorPlayer.isStunned = true;
                     jet.SmallRefill();
                     break;
                 case "Enemy":

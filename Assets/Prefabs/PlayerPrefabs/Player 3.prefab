@@ -470,9 +470,11 @@ MonoBehaviour:
   JumpButtonOnFallOnly: 0
   JetpackForce: 15
   JetpackSpeed: 5
+  timer: 2
   RocketJumping: 0
   WalljumpForces: {x: 8, y: 8}
   WallJumpDistance: 0.65
+  isStunned: 0
   OnJumping:
     m_PersistentCalls:
       m_Calls:
@@ -634,9 +636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2ff8119b53168489631a94e41176ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 212533313445990620}
-  jetpackDust: {fileID: 198816731522757896}
   jetpackDustInitPos: {x: 0.302, y: -0.463, z: 0}
+  jetpackDust: {fileID: 198816731522757896}
+  sprite: {fileID: 212533313445990620}
 --- !u!114 &114568394323751432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,6 +689,7 @@ MonoBehaviour:
   r: {fileID: 0}
   anim: {fileID: 0}
   cooldown: 0.2
+  CC: {fileID: 0}
 --- !u!114 &114675316243881768
 MonoBehaviour:
   m_ObjectHideFlags: 1
