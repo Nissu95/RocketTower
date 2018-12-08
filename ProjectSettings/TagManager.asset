@@ -7,6 +7,7 @@ TagManager:
   - Stage
   - Enemy
   - LevelSignal
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 1518775083
+    locked: 0
+  - name: Coin
+    uniqueID: 1753525481
     locked: 0
   - name: Swords
     uniqueID: 1364946345

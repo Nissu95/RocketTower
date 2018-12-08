@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class IamPlayer : MonoBehaviour {
 
-	void Start () {
+    public int score = 0;
+
+	void Start ()
+    {
         PlayerManager.AddPlayer(this);
 	}
+
     private void OnDestroy()
     {
         PlayerManager.RemovePlayer(this);

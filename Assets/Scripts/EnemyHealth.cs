@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour {
     public virtual void Hurt(float damage, int dir)
     {
         Quantity -= damage;
-        Debug.Log("Jumping to:" + dir * OnDamagePush.x + "," + OnDamagePush.y);
+        //Debug.Log("Jumping to:" + dir * OnDamagePush.x + "," + OnDamagePush.y);
         cc.ignoreFloor = true;
         cc.Push(dir * OnDamagePush.x, OnDamagePush.y);
         if (OnHurt != null)

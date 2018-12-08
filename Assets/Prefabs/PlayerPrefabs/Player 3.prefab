@@ -29,13 +29,14 @@ GameObject:
   - component: {fileID: 114204770390552560}
   - component: {fileID: 114930336063409770}
   - component: {fileID: 114685568859671504}
+  - component: {fileID: 114532172617570548}
   m_Layer: 8
   m_Name: Player 3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1135290988368398
 GameObject:
   m_ObjectHideFlags: 1
@@ -101,6 +102,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1244748443440426
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224524347714484904}
+  - component: {fileID: 222913560379354224}
+  - component: {fileID: 114836011367265068}
+  m_Layer: 8
+  m_Name: Stun Stars
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1524521272113446
 GameObject:
   m_ObjectHideFlags: 1
@@ -131,6 +149,7 @@ GameObject:
   - component: {fileID: 114568394323751432}
   - component: {fileID: 114675316243881768}
   - component: {fileID: 114532749798986760}
+  - component: {fileID: 114476806190732404}
   m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
@@ -181,8 +200,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111590845620398}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9920845, y: 1.404963, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.168829, y: -3.1795855, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4127345809373446}
@@ -586,6 +605,30 @@ MonoBehaviour:
   lives: 3
   OnDamagePush: {x: 10, y: 10}
   InvulTime: 2
+--- !u!114 &114476806190732404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766012745596690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472ce2f23d7e0d74fbdb170419111318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starsStun: {fileID: 1244748443440426}
+  actorPlayer: {fileID: 114206406401635918}
+--- !u!114 &114532172617570548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111590845620398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5564822293ed53e4aa6f4f23ce915ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114532749798986760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -730,6 +773,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
+--- !u!114 &114836011367265068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244748443440426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 750b148e918c97c4db8e137df9e4fa4f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &114930336063409770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5310,7 +5380,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 233638307
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -5365,7 +5435,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -61135243
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f279bcbfd7bd0694986f46b11e5e7578, type: 3}
   m_Color: {r: 0, g: 1, b: 0.7103448, a: 1}
@@ -5411,7 +5481,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1364946345
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c888aa1013ffd8148bb1f890ed9b71fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5437,6 +5507,13 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524521272113446}
+  m_CullTransparentMesh: 0
+--- !u!222 &222913560379354224
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244748443440426}
   m_CullTransparentMesh: 0
 --- !u!223 &223059760038631438
 Canvas:
@@ -5488,6 +5565,7 @@ RectTransform:
   m_Children:
   - {fileID: 224297836212811924}
   - {fileID: 224791719203948156}
+  - {fileID: 224524347714484904}
   m_Father: {fileID: 4042223673973674}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5495,6 +5573,24 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 2.8297753}
   m_SizeDelta: {x: 4.421, y: 3.061}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224524347714484904
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1244748443440426}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224522607064935126}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0.00000037253, y: -0.18949974}
+  m_SizeDelta: {x: 1.099, y: 0.954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224791719203948156
 RectTransform:

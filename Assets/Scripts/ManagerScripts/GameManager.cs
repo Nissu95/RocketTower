@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
-
+public class GameManager : MonoBehaviour
+{
     [SerializeField] private string winScene;
 
     public static GameManager Singleton;
@@ -18,18 +18,22 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         else
             Singleton = this;
-        //cantPlayers -= 1;
     }
     public void Win()
     {
-        if(Activated)
+        if (Activated)
+        {
             SceneManager.LoadScene(winScene);
+            Debug.Log("Win");
+        }
     }
-	public static void SetActive(bool state){
-		if (Singleton != null) {
-			Singleton.Activated = state;
-		}
-	}
+    public static void SetActive(bool state)
+    {
+        if (Singleton != null)
+        {
+            Singleton.Activated = state;
+        }
+    }
     private void OnApplicationQuit()
     {
         Activated = false;

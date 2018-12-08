@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
 
     [SerializeField] private float health;
     [SerializeField] private int lives;
@@ -9,9 +10,11 @@ public class PlayerHealth : MonoBehaviour {
     CharacterController2D cc;
     private float maxHealth;
 
-    public bool Invulnerable {
+    public bool Invulnerable
+    {
         get { return invulCountdown > 0; }
-        }
+
+    }
     void Awake()
     {
         maxHealth = health;
@@ -36,15 +39,12 @@ public class PlayerHealth : MonoBehaviour {
     private void die()
     {
         if (lives <= 0)
-        {
-            LevelManager.instance.deaths++;
             Destroy(gameObject);
-        }
         else
         {
             lives--;
             health = maxHealth;
-            RespawnPointManager.RequestRespawn(gameObject);           
+            RespawnPointManager.RequestRespawn(gameObject);
         }
     }
     public void Update()
@@ -54,28 +54,29 @@ public class PlayerHealth : MonoBehaviour {
             invulCountdown -= Time.deltaTime;
         }
     }
+
     public float InvulTime = 2f;
     float invulCountdown;
+
     public virtual void Hurt(float damage, int dir)
     {
-        if(invulCountdown<=0)
+        if (invulCountdown <= 0)
         {
             invulCountdown = InvulTime;
             health -= damage;
             if (health <= 0)
-            {
                 die();
-            }
-            Debug.Log("Jumping to:" + dir * OnDamagePush.x + "," + OnDamagePush.y);
+
+            //Debug.Log("Jumping to:" + dir * OnDamagePush.x + "," + OnDamagePush.y);
             cc.ignoreFloor = true;
             cc.SetSpeed(dir * OnDamagePush.x, OnDamagePush.y);
-        }       
+        }
     }
     public virtual void Hurt(float damage, Vector2 dir)
     {
         if (invulCountdown <= 0)
         {
-            if(damage!=0)
+            if (damage != 0)
                 invulCountdown = InvulTime;
 
             health -= damage;
