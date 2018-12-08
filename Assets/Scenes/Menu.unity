@@ -4165,7 +4165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectLvlCanvas: {fileID: 624339560}
   selectLevel: {fileID: 1411750684}
-  timer: 5
+  timer: 2
   playerImages:
   - {fileID: 1515077124}
   - {fileID: 1248812133}

@@ -41,13 +41,13 @@ public class ActorPlayer : MonoBehaviour
     public bool RocketJumping = false;
     public Vector2 WalljumpForces;
     public ActorPlayerInput input;
+    public ActorPlayerInput inpt;
     public CollisionPoint2D LeftWallJumpPoint;
     public CollisionPoint2D RightWallJumpPoint;
     public float WallJumpDistance = 0.65f;
     public bool isStunned = false;
 
     private Jetpack jetPack;
-    ActorPlayerInput inpt;
     float countdown;
 
     void Start()

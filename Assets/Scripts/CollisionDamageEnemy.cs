@@ -96,7 +96,7 @@ public class CollisionDamageEnemy : MonoBehaviour
                     ActorPlayer otherActorPlayer = other.GetComponent<ActorPlayer>();
                     VibrateJoystock otherJoystick = other.GetComponent<VibrateJoystock>();
                     //Debug.Log("Hurt Player" + actorPlayer.input.facingDirection);
-                    playerHealth.Hurt(0, new Vector2(actorPlayer.input.facingDirection * 15 * DirectionalPush.x, input.AxisY() * DirectionalPush.y));
+                    playerHealth.Hurt(0, new Vector2(actorPlayer.inpt.facingDirection * 15 * DirectionalPush.x, input.AxisY() * DirectionalPush.y));
                     otherJoystick.SetVibrating(true);
                     otherActorPlayer.isStunned = true;
                     jet.SmallRefill();

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour {
 
     [SerializeField] private string mainMenu;
     [SerializeField] private GameObject pauseMenuCanvas;
+    [SerializeField] GameObject resumeButton;
     private bool isPaused = false;
 
     public void Start()
@@ -17,7 +18,8 @@ public class PauseMenu : MonoBehaviour {
     {
         Time.timeScale = 1.0f;
     }
-    private void Update()
+
+    /*private void Update()
     {
         if (Time.timeScale == 0)
 		{
@@ -27,22 +29,23 @@ public class PauseMenu : MonoBehaviour {
 
 				if (AllInputs[i] != null && AllInputs[i].StartButtonPress())
 				{
-					Debug.Log("Hi!" + AllInputs[i].GetType());
+					//Debug.Log("Hi!" + AllInputs[i].GetType());
 					TogglePause();
 					break;
 				}
 			}
-           
         }
-    }
+    }*/
+
     void FixedUpdate()
     {
         for (int i = 0; i < AllInputs.Length; i++)
         {            
             if (AllInputs[i] != null && AllInputs[i].StartButtonPress())
             {
-                Debug.Log("Hi!" + AllInputs[i].GetType());
-                TogglePause();
+                //Debug.Log("Hi!" + AllInputs[i].GetType());
+                //TogglePause();
+                Pause();
                 break;
             }
         }
@@ -53,6 +56,7 @@ public class PauseMenu : MonoBehaviour {
         isPaused = true;
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0.0f;
+        EventSystem.current.SetSelectedGameObject(resumeButton);
     }
     public void Resume1()
     {
@@ -63,15 +67,11 @@ public class PauseMenu : MonoBehaviour {
 
     public void TogglePause()
     {
-        Debug.Log("TogglePause");
+        //Debug.Log("TogglePause");
         if (isPaused)
-        {
             Resume1();
-        }
         else
-        {
             Pause();
-        }
     }
 
     public InputListener[] AllInputs;
