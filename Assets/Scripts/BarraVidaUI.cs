@@ -11,7 +11,7 @@ public class BarraVidaUI : MonoBehaviour
     private PlayerHealth vidaJugador;
     private Image barraVida;
 
-    private void Awake()
+    private void Start()
     {
         jugador = GameObject.Find(jugadorAsignado);
 

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSpawner : MonoBehaviour {
+public class LevelSpawner : MonoBehaviour
+{
+    [SerializeField] private GameObject[] prefab;
+
     int elegido = 0;
     int previo = -1;
-    [SerializeField] private GameObject[] prefab;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,6 +19,7 @@ public class LevelSpawner : MonoBehaviour {
             {
                 elegido = Random.Range(0, prefab.Length);
             }
+
             GameObject objeto = Instantiate(prefab[elegido]);
             objeto.transform.position = transform.position;
             objeto.transform.rotation = transform.rotation;

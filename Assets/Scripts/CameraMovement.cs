@@ -33,12 +33,12 @@ public class CameraMovement : MonoBehaviour {
 
         if(Horizontal)
         {
-            if (transform.position.x < endingPoint.transform.position.x && ascending == true)
+            //if (transform.position.x < endingPoint.transform.position.x && ascending == true)
 				transform.Translate(ascendSpeed * Time.deltaTime, 0 , 0);
         }
         else
         {
-            if (transform.position.y < endingPoint.transform.position.y && ascending == true)
+            //if (transform.position.y < endingPoint.transform.position.y && ascending == true)
 				transform.Translate(0, ascendSpeed * Time.deltaTime, 0);
         }
         

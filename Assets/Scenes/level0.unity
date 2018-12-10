@@ -237,7 +237,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.001434
+      value: -8.001648
       objectReference: {fileID: 0}
     - target: {fileID: 224602771142894488, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -315,7 +315,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4165766369858488, guid: b3969d6cbcd750a4cbcfdcdfc6dfe5da, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3969d6cbcd750a4cbcfdcdfc6dfe5da, type: 2}
@@ -559,7 +559,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.001434
+      value: -8.001648
       objectReference: {fileID: 0}
     - target: {fileID: 224607489721566998, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 657470785}
   - component: {fileID: 657470792}
   m_Layer: 15
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +679,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -770,14 +770,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Horizontal: 0
   ascendStart: 3
-  startingAscendSpeed: 0.7
+  startingAscendSpeed: 0.5
   ascendIncrement: 1.6
   startPoint: {fileID: 741006091}
   endingPoint: {fileID: 1556533290}
   incrementTimes:
-  - 7
-  - 11
-  - 18
+  - 10
+  - 20
+  - 30
 --- !u!81 &657470787
 AudioListener:
   m_ObjectHideFlags: 0
@@ -843,8 +843,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 968753216}
+  - {fileID: 931445380}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &657470792
 MonoBehaviour:
@@ -960,7 +961,7 @@ Transform:
   - {fileID: 1376486112}
   - {fileID: 1057177687}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &733212495
 MonoBehaviour:
@@ -1003,7 +1004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &871849705
 GameObject:
@@ -1135,7 +1136,6 @@ GameObject:
   - component: {fileID: 931445382}
   - component: {fileID: 931445381}
   - component: {fileID: 931445383}
-  - component: {fileID: 931445384}
   m_Layer: 15
   m_Name: LevelSpawner
   m_TagString: Untagged
@@ -1150,11 +1150,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 931445379}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.448425, y: 20, z: 0}
+  m_LocalPosition: {x: -12.548426, y: 10.54, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 657470791}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &931445381
 MonoBehaviour:
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab:
-  - {fileID: 1215776619823718, guid: 99d592adb82d312448cf6bda5ed013df, type: 2}
+  - {fileID: 1987118403505994, guid: 99d592adb82d312448cf6bda5ed013df, type: 2}
   - {fileID: 1786651966421852, guid: 89d05870186f68d4486357014a3169e6, type: 2}
   - {fileID: 1469504034132732, guid: 15888124204e2e44488032780278438e, type: 2}
   - {fileID: 1253638058711202, guid: def51245cd6669c4abca7a11515600c9, type: 2}
@@ -1223,27 +1223,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &931445384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 931445379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d59f546eee2bd3d40a3f37b288556b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Horizontal: 0
-  ascendStart: 3
-  startingAscendSpeed: 0.7
-  ascendIncrement: 1.6
-  startPoint: {fileID: 931445380}
-  endingPoint: {fileID: 1556533290}
-  incrementTimes:
-  - 7
-  - 11
-  - 18
 --- !u!1 &968753215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1585,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.001434
+      value: -8.001648
       objectReference: {fileID: 0}
     - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -2007,7 +1986,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.001434
+      value: -8.001648
       objectReference: {fileID: 0}
     - target: {fileID: 224602771142894488, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
