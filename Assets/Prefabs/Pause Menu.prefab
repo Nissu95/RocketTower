@@ -178,6 +178,10 @@ MonoBehaviour:
   pauseMenuCanvas: {fileID: 1021516098887200}
   resumeButton: {fileID: 1283490919695596}
   AllInputs: []
+  vibrateJoystickOne: {fileID: 0}
+  vibrateJoystickTwo: {fileID: 0}
+  vibrateJoystickThree: {fileID: 0}
+  vibrateJoystickFour: {fileID: 0}
 --- !u!114 &114297108520995722
 MonoBehaviour:
   m_ObjectHideFlags: 1

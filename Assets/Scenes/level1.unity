@@ -222,6 +222,26 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114140827639838740, guid: c0a2751ffb7e86e4c9699e8438156a7c,
+        type: 2}
+      propertyPath: vibrateJoystickOne
+      value: 
+      objectReference: {fileID: 741982153}
+    - target: {fileID: 114140827639838740, guid: c0a2751ffb7e86e4c9699e8438156a7c,
+        type: 2}
+      propertyPath: vibrateJoystickTwo
+      value: 
+      objectReference: {fileID: 89068955}
+    - target: {fileID: 114140827639838740, guid: c0a2751ffb7e86e4c9699e8438156a7c,
+        type: 2}
+      propertyPath: vibrateJoystickThree
+      value: 
+      objectReference: {fileID: 1269931864}
+    - target: {fileID: 114140827639838740, guid: c0a2751ffb7e86e4c9699e8438156a7c,
+        type: 2}
+      propertyPath: vibrateJoystickFour
+      value: 
+      objectReference: {fileID: 1840935478}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a2751ffb7e86e4c9699e8438156a7c, type: 2}
   m_IsPrefabAsset: 0
@@ -316,6 +336,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1927252421862612, guid: c4d7963d8b150034a92be9bdd337e6af,
     type: 2}
   m_PrefabInternal: {fileID: 89068952}
+--- !u!114 &89068955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114402919566724610, guid: c4d7963d8b150034a92be9bdd337e6af,
+    type: 2}
+  m_PrefabInternal: {fileID: 89068952}
+  m_Script: {fileID: 11500000, guid: cf9c9b2de13e8eb4facc15f2e3912e6f, type: 3}
 --- !u!1 &209466082
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +596,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00061
+      value: -8.000641
       objectReference: {fileID: 0}
     - target: {fileID: 224602771142894488, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -856,7 +882,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00061
+      value: -8.000641
       objectReference: {fileID: 0}
     - target: {fileID: 224607489721566998, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -1060,6 +1086,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1927252421862612, guid: c4d90dd5561a1404ebbc3c4b8128de67,
     type: 2}
   m_PrefabInternal: {fileID: 741982150}
+--- !u!114 &741982153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114219395082711898, guid: c4d90dd5561a1404ebbc3c4b8128de67,
+    type: 2}
+  m_PrefabInternal: {fileID: 741982150}
+  m_Script: {fileID: 11500000, guid: cf9c9b2de13e8eb4facc15f2e3912e6f, type: 3}
 --- !u!1 &822991306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1509,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00061
+      value: -8.000641
       objectReference: {fileID: 0}
     - target: {fileID: 114545340828746202, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -1699,6 +1731,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1111590845620398, guid: 127b365cf8d9e8c4c8aa3e48e20e5549,
     type: 2}
   m_PrefabInternal: {fileID: 1269931861}
+--- !u!114 &1269931864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114685568859671504, guid: 127b365cf8d9e8c4c8aa3e48e20e5549,
+    type: 2}
+  m_PrefabInternal: {fileID: 1269931861}
+  m_Script: {fileID: 11500000, guid: cf9c9b2de13e8eb4facc15f2e3912e6f, type: 3}
 --- !u!1001 &1358864874
 Prefab:
   m_ObjectHideFlags: 0
@@ -1823,7 +1861,7 @@ Prefab:
     - target: {fileID: 224897103947608368, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8.00061
+      value: -8.000641
       objectReference: {fileID: 0}
     - target: {fileID: 224602771142894488, guid: d14649bf8dac5384c8d0188efcca8de5,
         type: 2}
@@ -2131,3 +2169,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1111590845620398, guid: 127b365cf8d9e8c4c8aa3e48e20e5549,
     type: 2}
   m_PrefabInternal: {fileID: 1840935475}
+--- !u!114 &1840935478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114685568859671504, guid: 127b365cf8d9e8c4c8aa3e48e20e5549,
+    type: 2}
+  m_PrefabInternal: {fileID: 1840935475}
+  m_Script: {fileID: 11500000, guid: cf9c9b2de13e8eb4facc15f2e3912e6f, type: 3}
