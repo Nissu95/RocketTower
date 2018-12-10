@@ -7,8 +7,10 @@ public class Spawner : MonoBehaviour, IGameAreaObserver {
     [SerializeField] private GameObject[] prefab;
     [SerializeField] private float spawnRateMin;       // Cada cuantos segundos spawnea un prefab
     [SerializeField] private float spawnRateMax;       // Cada cuantos segundos spawnea un prefab
-    public int MaxChildren = 3;
+
     List<GameObject> Children = new List<GameObject>();
+
+    public int MaxChildren = 3;
 
     void Spawn(){
         if (inside)

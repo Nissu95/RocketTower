@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CollisionDamageEnemy : MonoBehaviour
 {
-
     [SerializeField] private float damage;
 
     public Vector2 DirectionalPush = new Vector2(15, 10);
@@ -94,7 +93,7 @@ public class CollisionDamageEnemy : MonoBehaviour
                 case "Player":
                     PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
                     ActorPlayer otherActorPlayer = other.GetComponent<ActorPlayer>();
-                    VibrateJoystock otherJoystick = other.GetComponent<VibrateJoystock>();
+                    VibrateJoystick otherJoystick = other.GetComponent<VibrateJoystick>();
                     //Debug.Log("Hurt Player" + actorPlayer.input.facingDirection);
                     playerHealth.Hurt(0, new Vector2(actorPlayer.inpt.facingDirection * 15 * DirectionalPush.x, input.AxisY() * DirectionalPush.y));
                     otherJoystick.SetVibrating(true);

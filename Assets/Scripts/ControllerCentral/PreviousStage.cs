@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class PreviousStage : MonoBehaviour {
+public class PreviousStage : MonoBehaviour
+{
     public static string sceneName = null;
+
 	public static bool GoToPreviousStage()
     {
         if(sceneName != null)
@@ -11,11 +13,12 @@ public class PreviousStage : MonoBehaviour {
 			GameManager.SetActive (false);
             SceneManager.LoadScene(sceneName);
             return true;
-        }           
+        }
         return false;
     }
 
-	void Start () {		
+	void Start ()
+    {		
         sceneName = SceneManager.GetActiveScene().name;
     }
 	

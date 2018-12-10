@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 public enum LevelType { Vertical, Horizontal }
-public class RespawnPointManager : MonoBehaviour {
+public class RespawnPointManager : MonoBehaviour
+{
     protected static RespawnPointManager Singleton;
     public bool levelTypeHorizontal = false;
     protected List<RespawnPoint> points = new List<RespawnPoint>();
-    // Use this for initialization
-    void Awake () {
+
+    void Awake ()
+    {
         Singleton = this;
     }
+
     private void FixedUpdate()
     {
         if (points.Count > 1)
@@ -35,6 +38,7 @@ public class RespawnPointManager : MonoBehaviour {
             }
         }
     }
+
     static public void AddSpawnPoint(RespawnPoint point)
     {
         if (Singleton == null) Debug.LogError("No respawn point manager on scene!");

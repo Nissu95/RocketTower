@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
+
     float ascendSpeed; //Velocidad a la que aumenta en Y
     int incrementPoint = 0; // Posicion en Array de tiempos
     bool shouldAscend;
@@ -15,41 +16,39 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField] Transform endingPoint;
     [SerializeField] float[] incrementTimes;    // Array de tiempos en los que aumenta la velocidad
 
-    void Awake(){
+    void Awake()
+    {
         ascending = false;
         transform.position = startPoint.position;
     }
 
-    void Update() {
-        if (Time.timeSinceLevelLoad > ascendStart && ascending == false){
+    void Update()
+    {
+        if (Time.timeSinceLevelLoad > ascendStart && ascending == false)
+        {
             ascending = true;
             ascendSpeed = startingAscendSpeed;
             shouldAscend = true;
         }
+
         if(Horizontal)
         {
             if (transform.position.x < endingPoint.transform.position.x && ascending == true)
-            {
 				transform.Translate(ascendSpeed * Time.deltaTime, 0 , 0);
-            }
         }
         else
         {
             if (transform.position.y < endingPoint.transform.position.y && ascending == true)
-            {
 				transform.Translate(0, ascendSpeed * Time.deltaTime, 0);
-            }
         }
         
-        if (Time.timeSinceLevelLoad >  incrementTimes[incrementPoint] && shouldAscend == true){
+        if (Time.timeSinceLevelLoad >  incrementTimes[incrementPoint] && shouldAscend == true)
+        {
            ascendSpeed = ascendSpeed * ascendIncrement;
-           if (incrementPoint < incrementTimes.Length-1){
+           if (incrementPoint < incrementTimes.Length-1)
                 incrementPoint++;
-           }
-           else{
+           else
                 shouldAscend = false;
-           }
         }
-
     }
 }

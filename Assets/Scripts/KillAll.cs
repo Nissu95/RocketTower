@@ -10,13 +10,9 @@ public class KillAll : MonoBehaviour{
         
 
         if (other.gameObject.tag == tagPlayer && health != null)
-        {
             health.Kill();
-        }
         else
-        {
             Destroy(other.gameObject);
-        }
     }
 
 }

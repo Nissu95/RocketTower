@@ -8,10 +8,12 @@ public class EnemyHealth : MonoBehaviour {
     public Vector2 OnDamagePush = new Vector2(5, 5);
     public HurtDelegate OnHurt;
     CharacterController2D cc;
+
     private void Awake()
     {
         cc = GetComponent<CharacterController2D>();
     }
+
     public float Quantity
     {
         get { return health; }

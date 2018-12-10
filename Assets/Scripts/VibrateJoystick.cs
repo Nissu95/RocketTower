@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VibrateJoystock : MonoBehaviour {
+public class VibrateJoystick : MonoBehaviour {
 
     [SerializeField] float VibrationTime = 1.0f;
 
@@ -34,6 +34,13 @@ public class VibrateJoystock : MonoBehaviour {
     public void SetVibrating(bool _isVibrating)
     {
         isVibrating = _isVibrating;
+    }
+
+    public void SetVibrating(float lftMotor, float rgtMotor, bool _isVibrating)
+    {
+        input.Vibrate(0.0f, 0.0f);
+        isVibrating = _isVibrating;
+        vibrationCountdown = VibrationTime;
     }
 
 }
