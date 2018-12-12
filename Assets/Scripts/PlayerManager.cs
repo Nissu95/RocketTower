@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
         if (players.Count == 1)
         {
             players[0].score += scoreAddOnlyOnePlayer;
-
+            
             SetWinner();
 
             if (singleton != null)
@@ -65,7 +65,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        SetWinner();
+        //SetWinner();
     }
 
     public static void SetWinner()

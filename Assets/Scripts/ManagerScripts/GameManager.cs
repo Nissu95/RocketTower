@@ -22,10 +22,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         if (Activated)
-        {
             SceneManager.LoadScene(winScene);
-            Debug.Log("Win");
-        }
     }
     public static void SetActive(bool state)
     {

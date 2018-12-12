@@ -61,16 +61,16 @@ public class PauseMenu : MonoBehaviour {
     {
         isPaused = true;
         pauseMenuCanvas.SetActive(true);
-        if (vibrateJoystickOne.gameObject.activeInHierarchy)
+        if (vibrateJoystickOne.gameObject && vibrateJoystickOne.gameObject.activeInHierarchy)
             vibrateJoystickOne.SetVibrating(0f, 0f, false);
 
-        if (vibrateJoystickTwo.gameObject.activeInHierarchy)
+        if (vibrateJoystickTwo.gameObject && vibrateJoystickTwo.gameObject.activeInHierarchy)
             vibrateJoystickTwo.SetVibrating(0f, 0f, false);
 
-        if (vibrateJoystickThree.gameObject.activeInHierarchy)
+        if (vibrateJoystickThree.gameObject && vibrateJoystickThree.gameObject.activeInHierarchy)
             vibrateJoystickThree.SetVibrating(0f, 0f, false);
 
-        if (vibrateJoystickFour.gameObject.activeInHierarchy)
+        if (vibrateJoystickFour.gameObject && vibrateJoystickFour.gameObject.activeInHierarchy)
             vibrateJoystickFour.SetVibrating(0f, 0f, false);
 
         Time.timeScale = 0.0f;

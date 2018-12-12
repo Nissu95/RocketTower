@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
         vibrateJoystick.SetVibrating(0f, 0f, false);
 
         if (lives <= 0)
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         else
         {
             lives--;
