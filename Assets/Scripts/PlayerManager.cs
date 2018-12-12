@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 public class PlayerManager : MonoBehaviour
@@ -7,12 +6,13 @@ public class PlayerManager : MonoBehaviour
     public UnityEvent OnlyOnePlayerRemains;
     public static int scoreAddOnlyOnePlayer = 10;
 
-
     static List<IamPlayer> players = new List<IamPlayer>();
     static List<IamPlayer> iamPlayers;
     static string winner;
     static int winnerScore = 0;
     static PlayerManager singleton;
+    static Sprite winnerSprite;
+    static Color winnerColor;
 
     void Awake()
     {
@@ -50,19 +50,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    /*public static void PlayerFinish(IamPlayer player, int scoreAdd)
-    {
-        for (int i = 0; i < players.Capacity; i++)
-        {
-            if (players[i] == player)
-                players[i].score += scoreAdd;
-        }
-
-        SetWinner();
-
-        GameManager.Singleton.Win();
-    }*/
-
     private void Update()
     {
         //SetWinner();
@@ -75,9 +62,10 @@ public class PlayerManager : MonoBehaviour
             if (players[i].score > winnerScore)
             {
                 winner = players[i].name;
+                winnerSprite = players[i].GetComponentInChildren<SpriteRenderer>().sprite;
+                winnerColor = players[i].GetComponentInChildren<SpriteRenderer>().color;
                 winnerScore = players[i].score;
             }
-
         }
     }
 
@@ -94,5 +82,15 @@ public class PlayerManager : MonoBehaviour
     public static string WinnerPlayerName()
     {
         return winner;
+    }
+
+    public static Sprite GetWinnerSprite()
+    {
+        return winnerSprite;
+    }
+
+    public static Color GetWinnerColor()
+    {
+        return winnerColor;
     }
 }
