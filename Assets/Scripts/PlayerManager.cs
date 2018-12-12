@@ -4,10 +4,10 @@ using UnityEngine.Events;
 public class PlayerManager : MonoBehaviour
 {
     public UnityEvent OnlyOnePlayerRemains;
-    public static int scoreAddOnlyOnePlayer = 10;
+    public static int scoreAddOnlyOnePlayer = 3;
 
     static List<IamPlayer> players = new List<IamPlayer>();
-    static List<IamPlayer> iamPlayers;
+    //static List<IamPlayer> iamPlayers;
     static string winner;
     static int winnerScore = 0;
     static PlayerManager singleton;
@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
 
         //winner = "Noone";
         players = new List<IamPlayer>();
-        iamPlayers = players;
+        //iamPlayers = players;
     }
 
     public static void AddPlayer(IamPlayer newPlayer)
@@ -36,12 +36,12 @@ public class PlayerManager : MonoBehaviour
 
     public static void RemovePlayer(IamPlayer dyingPLayer)
     {
-        iamPlayers = players;
+        //iamPlayers = players;
         players.Remove(dyingPLayer);
         //Debug.Log("Removed player: " + (players.Count - 1));
         if (players.Count == 1)
         {
-            players[0].score += scoreAddOnlyOnePlayer;
+            players[0].score += scoreAddOnlyOnePlayer * (players[0].GetComponent<PlayerHealth>().CurrentLives + 1);
             
             SetWinner();
 
