@@ -38,7 +38,6 @@ public class VibrateJoystick : MonoBehaviour {
 
     public void SetVibrating(float lftMotor, float rgtMotor, bool _isVibrating)
     {
-        Debug.Log(input);
         input.Vibrate(0.0f, 0.0f);
         isVibrating = _isVibrating;
         vibrationCountdown = VibrationTime;
