@@ -84,6 +84,7 @@ public class CollisionDamageEnemy : MonoBehaviour
         }
         
     }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (damageCountdown > 0)

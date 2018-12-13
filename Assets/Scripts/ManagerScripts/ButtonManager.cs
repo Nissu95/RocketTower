@@ -27,7 +27,7 @@ public class ButtonManager : MonoBehaviour {
 
     public void PressSelectLevel()
     {
-        if (GameManager.Singleton.GetCantPlayers() > 0)
+        if (GameManager.Singleton.GetCantPlayers() > 1)
             SceneManager.LoadScene(SceneManagement.instance.levels[SceneManagement.instance.currentLvl]);
     }
 
