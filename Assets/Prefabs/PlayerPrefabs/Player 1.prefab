@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 114250101221067336}
   - component: {fileID: 114253163667002938}
   - component: {fileID: 61247356658826500}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SwordAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

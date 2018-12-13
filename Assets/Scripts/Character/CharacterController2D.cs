@@ -249,6 +249,7 @@ public class CollisionPoint2D
         filter.SetLayerMask(layers);
         this.Collisions = new Collider2D[concurrentCollisions];
     }
+
     public bool TestCollision(float DeltaTime)
     {
         CollidedLastUpdate = Collided;
@@ -265,6 +266,7 @@ public class CollisionPoint2D
         }
         return Collided;
     }
+
     public void DrawGizmos()
     {
         Gizmos.DrawWireSphere((Vector2)parent.position + position, radius);
