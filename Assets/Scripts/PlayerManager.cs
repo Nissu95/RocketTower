@@ -53,6 +53,7 @@ public class PlayerManager : MonoBehaviour
 
     public static void SetWinner()
     {
+        Debug.Log("1st" + iamPlayers.Count);
         for (int i = 0; i < iamPlayers.Count; i++)
         {
             if (iamPlayers[i].score > winnerScore)
@@ -63,6 +64,13 @@ public class PlayerManager : MonoBehaviour
                 winnerScore = iamPlayers[i].score;
             }
         }
+
+        iamPlayers.Clear();
+
+        /*Debug.Log("2nd" + iamPlayers.Count);
+        for (int i = 0; i < iamPlayers.Count; i++)
+            iamPlayers.Remove(iamPlayers[i]);*/
+        Debug.Log("3rd" + iamPlayers.Count);
     }
 
     public static void SetWinnerScore(int _score)
