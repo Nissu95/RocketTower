@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     public static int scoreAddOnlyOnePlayer = 3;
 
     static List<IamPlayer> players = new List<IamPlayer>();
-    //static List<IamPlayer> iamPlayers;
+    static List<IamPlayer> iamPlayers;
     static string winner;
     static int winnerScore = 0;
     static PlayerManager singleton;
@@ -25,12 +25,13 @@ public class PlayerManager : MonoBehaviour
 
         //winner = "Noone";
         players = new List<IamPlayer>();
-        //iamPlayers = players;
+        iamPlayers = new List<IamPlayer>();
     }
 
     public static void AddPlayer(IamPlayer newPlayer)
     {
         players.Add(newPlayer);
+        iamPlayers.Add(newPlayer);
         //Debug.Log("Added player: " + (players.Count - 1));
     }
 
@@ -50,21 +51,16 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        //SetWinner();
-    }
-
     public static void SetWinner()
     {
-        for (int i = 0; i < players.Count; i++)
+        for (int i = 0; i < iamPlayers.Count; i++)
         {
-            if (players[i].score > winnerScore)
+            if (iamPlayers[i].score > winnerScore)
             {
-                winner = players[i].name;
-                winnerSprite = players[i].GetComponentInChildren<SpriteRenderer>().sprite;
-                winnerColor = players[i].GetComponentInChildren<SpriteRenderer>().color;
-                winnerScore = players[i].score;
+                winner = iamPlayers[i].name;
+                winnerSprite = iamPlayers[i].GetComponentInChildren<SpriteRenderer>().sprite;
+                winnerColor = iamPlayers[i].GetComponentInChildren<SpriteRenderer>().color;
+                winnerScore = iamPlayers[i].score;
             }
         }
     }
